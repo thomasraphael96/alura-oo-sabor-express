@@ -1,21 +1,25 @@
 class Restaurante:
-    # construtor
+    # atributos da classe (compartilhado entre instâncias)
+    restaurantes = []
+
+    # construtor com atributos da instância
     def __init__(self, nome, categoria):
         self.nome = nome
         self.categoria = categoria
         self.ativo = False
-
+        Restaurante.restaurantes.append(self)
+    
+    # define a representação em forma de string de um objeto de uma classe
     def __str__(self):
         return f'{self.nome} | {self.categoria}'
+    
+    # método que itera sobre a lista de restaurantes (atributo da classe) e imprime no terminal os valores
+    def listar_restaurantes():
+        for restaurante in Restaurante.restaurantes:
+            print(f'{restaurante.nome} | {restaurante.categoria} | {restaurante.ativo}')
 
+# instancias da classe
 restaurante_praca = Restaurante('Praça', 'Lanches')
-print(vars(restaurante_praca)) # mostra atributos da instancia
-print(dir(restaurante_praca)) # mostra métodos especiais da classe e atributos da classe ou instancia
-
 restaurante_pizza = Restaurante('Pizza Express', 'Italiano')
-print(vars(restaurante_pizza))
 
-# antes de definir o método __str__()
-print(restaurante_pizza) # saida -> <__main__.Restaurante object at 0x00000270EEFBA090>
-# depois de definir o método __str__()
-print(restaurante_pizza) #  saida -> Pizza Express | Italiano
+Restaurante.listar_restaurantes() # chama o método que lista os restaurantes que estão guardados na lista restaurantes (atributo da classe)
