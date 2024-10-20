@@ -2,6 +2,7 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from models.avaliacao import Avaliacao
+from models.item_cardapio import ItemCardapio
 
 class Restaurante:
     """
@@ -108,8 +109,6 @@ class Restaurante:
         media_das_notas = round(soma_das_notas / quantidade_de_notas, 1)
         return media_das_notas
     
-    def adicionar_bebida_no_cardapio(self, bebida):
-        self._cardapio.append(bebida)
-
-    def adicionar_prato_no_cardapio(self, prato):
-        self._cardapio.append(prato)
+    def adicionar_no_cardapio(self, item):
+        if isinstance(item, ItemCardapio):
+            self._cardapio.append(item)

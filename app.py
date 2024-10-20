@@ -18,8 +18,8 @@ restaurante_praca.receber_avaliacao('Marcos', 3)
 # criando itens do cardápio
 bebida_suco = Bebida('Suco de Melancia', 5.0, 'grande')
 prato_paozinho = Prato('Pãozinho', 2.0, 'O melhor pão da cidade')
-restaurante_praca.adicionar_bebida_no_cardapio(bebida_suco)
-restaurante_praca.adicionar_prato_no_cardapio(prato_paozinho)
+restaurante_praca.adicionar_no_cardapio(bebida_suco)
+restaurante_praca.adicionar_no_cardapio(prato_paozinho)
 
 def main():
     # Restaurante.listar_restaurantes() # chama o método que lista os restaurantes que estão guardados na lista restaurantes (atributo da classe)
