@@ -14,17 +14,23 @@ class Restaurante:
         return f'{self._nome} | {self.categoria}'
     
     # método que itera sobre a lista de restaurantes (atributo da classe) e imprime no terminal os valores
-    def listar_restaurantes():
+    @classmethod
+    def listar_restaurantes(cls):
         print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Status'.ljust(25)}')
-        for restaurante in Restaurante.restaurantes:
+        for restaurante in cls.restaurantes:
             print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.ativo}')
 
     @property
     def ativo(self):
         return '☑' if self._ativo else '☐'
 
+    def alternar_estado(self):
+        self._ativo = not self._ativo
+        return self._ativo
+
 # instancias da classe
 restaurante_praca = Restaurante('Praça', 'Lanches')
+restaurante_praca.alternar_estado()
 restaurante_pizza = Restaurante('Pizza Express', 'Italiano')
 
 Restaurante.listar_restaurantes() # chama o método que lista os restaurantes que estão guardados na lista restaurantes (atributo da classe)
