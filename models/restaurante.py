@@ -27,10 +27,3 @@ class Restaurante:
     def alternar_estado(self):
         self._ativo = not self._ativo
         return self._ativo
-
-# instancias da classe
-restaurante_praca = Restaurante('Praça', 'Lanches')
-restaurante_praca.alternar_estado()
-restaurante_pizza = Restaurante('Pizza Express', 'Italiano')
-
-Restaurante.listar_restaurantes() # chama o método que lista os restaurantes que estão guardados na lista restaurantes (atributo da classe)
