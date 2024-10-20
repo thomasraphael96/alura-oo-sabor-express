@@ -36,6 +36,7 @@ class Restaurante:
         self._categoria = categoria.upper() # Armazena a categoria em letras maiúsculas
         self._ativo = False # Estado inicial do restaurante
         self._avaliacoes = [] # Lista de avaliações
+        self._cardapio = [] # Lista de itens do cardápio
         Restaurante.restaurantes.append(self) # Adiciona o restaurante à lista da classe
     
     # define a representação em forma de string de um objeto de uma classe
@@ -106,3 +107,9 @@ class Restaurante:
         quantidade_de_notas = len(self._avaliacoes)
         media_das_notas = round(soma_das_notas / quantidade_de_notas, 1)
         return media_das_notas
+    
+    def adicionar_bebida_no_cardapio(self, bebida):
+        self._cardapio.append(bebida)
+
+    def adicionar_prato_no_cardapio(self, prato):
+        self._cardapio.append(prato)
